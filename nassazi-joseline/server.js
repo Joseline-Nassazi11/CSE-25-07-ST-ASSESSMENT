@@ -20,8 +20,8 @@ mongoose
   .catch((err) => console.error(" MongoDB connection error:", err));
 
 // Routes
-// const routes = require("./routes/index");
-// app.use("/", routes);
+const userRoutes = require("./routes/userRoutes");
+app.use("/", userRoutes);
 
 // Start Server
 const PORT = process.env.PORT || 3000;
