@@ -1,81 +1,110 @@
+/* login.css */
+
+/* Global Reset/Base Styles */
 body {
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
+    background-color: #f7f7f7;
+    /* Use flexbox to center the main content block (h2 + .login-container) */
     display: flex;
+    /* Change flex-direction to column so items stack vertically */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-}
-
-.login-container {
-    background: #fff;
-    padding: 30px 40px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 320px;
-    position: relative;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
 h2 {
-    text-align: center;
-    margin-bottom: 20px;
+    /* Matches the original size and color */
+    font-size: 28px;
+    font-weight: 500;
+    color: #333;
+    
+    margin-bottom: 25px;
+    /* Ensure no unwanted top margin is pushing the entire block down */
+    margin-top: 0;
 }
 
+/* Login Container Styling */
+.login-container {
+    background-color: #ffffff;
+    /* Removed the top padding (40px) from the original since h2 is gone */
+    padding: 30px 30px 40px;
+    width: 380px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+}
+
+/* --- The remaining CSS for inputs, button, and links stays the same --- */
+
+/* Input Field Styling */
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    position: relative;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-input {
+.login-container input[type="text"],
+.login-container input[type="password"] {
     width: 100%;
-    padding: 8px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    transition: border-color 0.3s, font-weight 0.3s;
+    height: 45px;
+    padding: 0 15px;
+    border: 1px solid #99e8e0;
+    border-radius: 4px;
+    background-color: #ffffff;
+    font-size: 16px;
     outline: none;
+    color: #333;
+    box-sizing: border-box;
 }
 
-input.error {
-    border-color: red;
+.login-container input:focus {
+    border-color: #4dc2c2;
+    box-shadow: 0 0 0 2px rgba(77, 194, 194, 0.2);
 }
 
-input.valid {
-    border-color: green;
-    font-weight: bold;
+::placeholder {
+    color: #999;
+    font-style: italic;
 }
 
-button {
+/* Submit Button Styling */
+.login-container button[type="submit"] {
+    background-color: #4dc2c2;
     width: 100%;
-    padding: 10px;
-    background: #4CAF50;
+    height: 45px;
     color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    font-size: 18px;
     font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    margin-top: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background: #45a049;
+.login-container button[type="submit"]:hover {
+    background-color: #40a0a0;
 }
 
+/* Signup Link/Text Styling */
 .signup-link {
-    text-align: center;
-    margin-top: 10px;
+    margin-top: 25px;
     font-size: 14px;
+    color: #666;
 }
 
 .signup-link a {
-    color: #007BFF;
+    color: #407ad6;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .signup-link a:hover {
     text-decoration: underline;
+}
+
+/* Hide the unused 'label' elements from the Pug template to match the image's design */
+.form-group label {
+    display: none;
 }
