@@ -8,7 +8,7 @@ const app = express();
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
+app.use(express.static(path.join(__dirname, "public")));
 // Set up Pug
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));

@@ -1,0 +1,24 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Login
+    link(rel='stylesheet', href='/css/login.css')
+  body
+    .login-container
+      h2 Login
+      //- Add action and method for form submission
+      form#loginForm(action='/login' method='POST')
+        .form-group
+          label(for='username') Username
+          input#username(type='text' name='username' placeholder='Enter username')
+        .form-group
+          label(for='password') Password
+          input#password(type='password' name='password' placeholder='Enter password')
+        button(type='submit') Login
+      .signup-link
+        p Don't have an account? 
+          a(href='/signup') Sign up
+
+    script(src='/js/login.js')
