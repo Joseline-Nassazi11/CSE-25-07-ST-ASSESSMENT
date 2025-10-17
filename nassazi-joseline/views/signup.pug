@@ -5,31 +5,44 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title Sign Up
     link(rel='stylesheet', href='/css/signup.css')
+
   body
+    h2 SignUp
+
     .signup-container
-      h2 Sign Up
-      //- Add action and method
-      form#signupForm(action='/signup' method='POST')
-        .form-group
-          label(for='username') Username
-          input#username(type='text' name='username' placeholder='Enter username')
-        .form-group
-          label(for='email') Email
-          input#email(type='email' name='email' placeholder='Enter email')
-        .form-group
-          label(for='password') Password
-          input#password(type='password' name='password' placeholder='Enter password')
-        button(type='submit') Sign Up
+      // Success Alert (hidden by default)
+      .alert.success#alertBox(style='display: none;')
+        span Account created successfully! – 
+          a(href='/login') Login
+        span.close-btn(onclick='closeAlert()') ×
 
-      .login-link
-        p Already have an account? 
-          a(href='/') Login
+      form#signupForm(action='/signup', method='POST', novalidate)
+        // Field 1: Full Name
+        .form-group
+          input#fullName(type='text', name='fullName', placeholder='Full Name', required)
 
-      //- Success Alert (hidden initially)
-      .alert#alertBox(style='display: none;')
-        span Account created successfully! 
-          | 
-          a(href='/') Login
-        span(onclick='closeAlert()') ×
+        // Field 2: Email
+        .form-group
+          input#email(type='email', name='email', placeholder='Email', required)
+
+        // Field 3: Phone Number
+        .form-group
+          input#phoneNumber(type='tel', name='phoneNumber', placeholder='Phone Number', required)
+
+        // Field 4: Password
+        .form-group
+          input#password(type='password', name='password', placeholder='Password', required)
+
+        // Field 5: Confirm Password
+        .form-group
+          input#confirmPassword(type='password', name='confirmPassword', placeholder='Confirm Password', required)
+
+        button(type='submit') SIGNUP
+
+    // Link outside the signup card
+    .login-link
+      p
+        | Have an account? 
+        a(href='/login') Login
 
     script(src='/js/signup.js')

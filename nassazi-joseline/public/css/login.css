@@ -2,10 +2,8 @@
 
 /* Global Reset/Base Styles */
 body {
-    background-color: #f7f7f7;
-    /* Use flexbox to center the main content block (h2 + .login-container) */
+    background-color: #f3f4f6;
     display: flex;
-    /* Change flex-direction to column so items stack vertically */
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -15,33 +13,27 @@ body {
 }
 
 h2 {
-    /* Matches the original size and color */
     font-size: 28px;
     font-weight: 500;
     color: #333;
-    
     margin-bottom: 25px;
-    /* Ensure no unwanted top margin is pushing the entire block down */
     margin-top: 0;
 }
 
 /* Login Container Styling */
 .login-container {
     background-color: #ffffff;
-    /* Removed the top padding (40px) from the original since h2 is gone */
-    padding: 30px 30px 40px;
+    padding: 30px;
     width: 380px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
 }
 
-/* --- The remaining CSS for inputs, button, and links stays the same --- */
+/* Input Field Styling & Validation Borders */
 
-/* Input Field Styling */
 .form-group {
     margin-bottom: 20px;
-    position: relative;
 }
 
 .login-container input[type="text"],
@@ -56,19 +48,31 @@ h2 {
     outline: none;
     color: #333;
     box-sizing: border-box;
+    transition: border-color 0.3s ease;
 }
 
-.login-container input:focus {
+.login-container input.error {
+    border-color: #e74c3c;
+    box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2);
+}
+
+.login-container input.valid {
+    border-color: #2ecc71;
+    box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.2);
+}
+
+.login-container input:focus:not(.valid):not(.error) {
     border-color: #4dc2c2;
     box-shadow: 0 0 0 2px rgba(77, 194, 194, 0.2);
 }
+
 
 ::placeholder {
     color: #999;
     font-style: italic;
 }
 
-/* Submit Button Styling */
+/*  Submit Button Styling & Hover */
 .login-container button[type="submit"] {
     background-color: #4dc2c2;
     width: 100%;
@@ -83,15 +87,22 @@ h2 {
     transition: background-color 0.3s ease;
 }
 
+/* 3. Login Button Hover (Purple) */
 .login-container button[type="submit"]:hover {
-    background-color: #40a0a0;
+    background-color: #5f2f5d;
 }
 
-/* Signup Link/Text Styling */
+/*  Signup Link Styling  */
+
 .signup-link {
-    margin-top: 25px;
+    margin-top: 20px;
     font-size: 14px;
     color: #666;
+    text-align: center;
+}
+
+.signup-link p {
+    margin: 0;
 }
 
 .signup-link a {
@@ -102,9 +113,4 @@ h2 {
 
 .signup-link a:hover {
     text-decoration: underline;
-}
-
-/* Hide the unused 'label' elements from the Pug template to match the image's design */
-.form-group label {
-    display: none;
 }

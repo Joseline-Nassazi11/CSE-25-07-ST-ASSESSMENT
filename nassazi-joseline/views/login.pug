@@ -10,14 +10,14 @@ html(lang='en')
     h2 Login
     .login-container
       // Add action and method for form submission
-      form#loginForm(action='/login', method='POST')
+      form#loginForm(action='/login', method='POST' novalidate )
         .form-group
-          input#username(type='text', name='username', placeholder='Email or Phone Number', required)
+          input#username(type='text', name='username', placeholder='Email or Phone Number', required )
         .form-group
           input#password(type='password', name='password', placeholder='Password', required)
         button(type='submit') Login
 
-      .signup-link
+    .signup-link
         p
           | Don't have an account? 
           a(href='/signup') Sign up
